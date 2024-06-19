@@ -153,7 +153,7 @@ app.delete('/api/products/:pid', async (req, res) => {
   }
 });
 
-app.post('/api/cards/', async (req, res) => {
+app.post('/api/carts/', async (req, res) => {
   try {
     const newCart = {
       cartId: uuidv4(),
@@ -171,7 +171,7 @@ app.post('/api/cards/', async (req, res) => {
   }
 });
 
-app.get('/api/cards', async (req, res) => {
+app.get('/api/carts', async (req, res) => {
   try {
     const carts = await readCartsFile();
     res.json(carts);
@@ -181,7 +181,7 @@ app.get('/api/cards', async (req, res) => {
   }
 });
 
-app.get('/api/cards/:cid', async (req, res) => {
+app.get('/api/carts/:cid', async (req, res) => {
   const { cid } = req.params;
   try {
     const carts = await readCartsFile();
@@ -198,7 +198,7 @@ app.get('/api/cards/:cid', async (req, res) => {
   }
 });
 
-app.post('/api/cards/:cid/product', async (req, res) => {
+app.post('/api/carts/:cid/product', async (req, res) => {
   const { cid } = req.params;
   const { productId, quantity } = req.body;
 
